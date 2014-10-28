@@ -26,42 +26,57 @@
     <script>
       var canvas = document.getElementById('myCanvas');
       var context = canvas.getContext('2d');
-      // do cool things with the context
-      context.font = '40pt Calibri';
-      context.fillStyle = 'blue';
-      context.fillText('Hello World!', 150, 100);
-
       function update(){  //metoda update
-      char.move(/*delta x delta y*/)
+      p1.move(/*delta x delta y*/)
       };
 
       function render(){  //metoda render
-        char.render();
+        p1.render();
       };
 
       //char
-    //  var char = {Name:"", w_x:0 ,w_y:0 , color:"" , maxspeed:0};
-      function char.make(){
+      function char(){
+        this.name="player_1";     //char name
+        this.maxspeed=5;  //max char speed
+        this.w_x=10;      //x dimention
+        this.w_y=10;      //y dimention
+        this.color="white"
+      };
+      char.prototype.move=function(d_x,d_y){
+        this.x+=d_x;
+        this.y+=d_y;
+      };
+      char.prototype.render=function(){
         ctx.fillStyle = color;
-        char.maxspeed=5;  //max char speed
-        char.w_x=10;      //x dimention
-        char.w_y=10;      //y dimention
-      };
-      function char.move(d_x,d_y){
-        char.x+=d_x;
-        char.y+=d_y;
-      };
-      function char.render(){
-        ctx.fillRect(char.x, char.y, char.w_x, char.w_y); //x=pos y=pos w_x=dimetion w_y=dimention
+        ctx.fillRect(this.x, this.y, this.w_x, this.w_y); //x=pos y=pos w_x=dimetion w_y=dimention
       };
       //main loop
       function main(){
 
       };
-    </script>
-
-
-
+      //test
+      // do cool things with the context
+      context.font = '40pt Calibri';
+      context.fillStyle = 'blue';
+      context.fillText('Hello World!', 150, 100);
+      var p1 = new char();
+      var str=("Hello " + p1.name + " " + p1.w_x + " " + p1.w_y + " " + p1.color);
+      // events hendler
+      document.addEventListener('keydown', function(event) {
+          if (event.keyCode == 37) {
+              alert('Left was pressed');
+          }
+          else if (event.keyCode == 39) {
+              alert('Right was pressed');
+          }
+          else if (event.keyCode == 38) {
+              alert('Up was pressed');
+          }
+          else if (event.keyCode == 40) {
+              alert('Down was pressed');
+          }
+      }, true);
+    </script>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
