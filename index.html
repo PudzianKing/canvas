@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Canvas</title>
+        <meta name="description" content="test">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.css">
+		    <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css"
+  </head>
+  <body>
+    <div>
+      <h1 style="text-align: center;">Canvas</h1>
+    </div>
+    <canvas id="myCanvas" width="800" height="500"
+    style="text-align: center;
+     border:1px solid #000000;
+     padding-left: 0;
+     padding-right: 0;
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
+     "></canvas>
+    <script>
+      function update(){  //metoda update
+      char.move(/*delta x delta y*/)
+      }
+      function render(){  //metoda render
+        char.render();
+      }
+      //char
+      var char = {Name:"", w_x:0 ,w_y:0 , color:"" , maxspeed:0};
+      function char.make(){
+        ctx.fillStyle = color;
+        char.maxspeed=5;  //max char speed
+        char.w_x=10; //x dimention
+        char.w_y=10; //y dimention
+      }
+      function char.move(d_x,d_y){
+        char.x+=d_x;
+        char.y+=d_y;
+      }
+      function char.render(){
+        ctx.fillRect(char.x, char.y, char.w_x, char.w_y); //x=pos y=pos w_x=dimetion w_y=dimention
+      }
+
+      document.addEventListener('keydown', function(event) {
+        if(event.keyCode == 37) {
+          alert('Left was pressed');
+        }
+        else if(event.keyCode == 39) {
+          alert('Right was pressed');
+        }
+      }, true);
+
+
+      //main loop
+      function main(){
+
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      // do cool things with the context
+      context.font = '40pt Calibri';
+      context.fillStyle = 'blue';
+      context.fillText('Hello World!', 150, 100);
+    </script>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src='https://www.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>
