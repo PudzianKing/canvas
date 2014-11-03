@@ -1,0 +1,46 @@
+function update(){  //metoda update
+  p1.move(/*delta x delta y*/)
+};
+
+function render(){  //metoda render
+  p1.render();
+};
+
+/*function center(){
+  canvas.width ;
+  canvas.height;
+};*/
+
+//char
+function char(){
+  this.name="player_1";     //char name
+  this.maxspeed=5;  //max char speed
+  this.w_x=10;      //x dimention
+  this.w_y=10;      //y dimention
+  this.color="white"
+};
+char.prototype.move=function(d_x,d_y){
+  this.x+=d_x;
+  this.y+=d_y;
+};
+char.prototype.render=function(){
+  context.fillStyle = p1.color;
+  context.fillRect(this.x, this.y, this.w_x, this.w_y); //x=pos y=pos w_x=dimetion w_y=dimention
+  //drawImage(image,x,y)
+};
+//main loop
+window.main = function () {
+  window.requestAnimationFrame( main );
+  eh();
+  update();
+  render();
+  // Whatever your main loop needs to do.
+};
+main();
+
+function splash_s(){
+  context.font = '40pt Calibri';
+  context.fillStyle = 'Black';
+  var str=("Hello " + p1.name + " " + p1.w_x + " " + p1.w_y + " " + p1.color);
+  context.fillText('Hello World!', canvas.width/2-120, canvas.height/2-10);
+}

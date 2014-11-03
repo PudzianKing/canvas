@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>przykład z wykorzystaniem setInterval/clearInterval</title>
+
+<script type="text/javascript">
+var idInterwalu;
+function rng(){
+  return Math.floor(Math.random() * (255 - 0)) + 0
+}
+function hwl() {
+  context.font = "40pt Arial";
+  context.fillStyle = "rgb("+rng()+","+rng()+","+rng()+")";
+  context.fillText('Hello World!',250,250);
+}
+function zmienKolor() {
+  idInterwalu = setInterval(zmienKolorTekstu, 1000);
+}
+
+function zmienKolorTekstu() {
+  var elem = document.getElementById("my_box");
+  if (elem.style.color == "ff0000") {
+    elem.style.color = 'blue';
+  } else {
+    elem.style.color = 'red';
+  }
+}
+
+function zatrzymajZmianeKoloru() {
+  clearInterval(idInterwalu);
+}
+</script>
+</head>
+
+<body onload="zmienKolor();">
+<div id="my_box">
+<p>Hello World</p>
+</div>
+<button onclick="zatrzymajZmianeKoloru();">Stop</button>
+</body>
+</html>
